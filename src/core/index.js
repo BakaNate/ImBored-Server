@@ -3,14 +3,13 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const helmet = require('helmet');
-const Ddos = require('ddos');
 const cors = require('cors');
 const socketio = require('socket.io');
 const http = require('http');
+const router = require('./router');
 
 // Tools
 const { Xlog } = require('../tools/Xlog');
-const logger = require('../tools/logger');
 const Constants = require('../tools/Constants');
 
 const constant = new Constants();
@@ -19,34 +18,13 @@ const port = (process.env.BUILD_ENVIRONMENT === 'PRODUCTION') ? constant.PORT : 
 const mongooseUri = (process.env.BUILD_ENVIRONMENT === 'PRODUCTION') ? constant.DB_URI : constant.DB_URI_DEV;
 
 const User = require('../models/UserModel');
-const userController = require('../controllers/userController');
-const authController = require('../controllers/Auth');
+
 
 console.time('[*] Booting');
 
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
-
-function configRouter() {
-  const router = express.Router();
-  const ddos = new Ddos({ burst: 5, limit: 10 });
-  router.use(ddos.express);
-
-  router.route('/')
-    .get(logger.myLogger, (req, res) => { res.status(200).send('Salam !'); });
-
-  router.route('/register')
-    .post(logger.myLogger, userController.registerUser);
-
-  router.route('/login')
-    .post(logger.myLogger, userController.logUser);
-
-  router.route('/admin')
-    .get(logger.myLogger, authController.isAuthenticated);
-
-  app.use(router);
-}
 
 io.on('connection', (socket) => {
   Xlog('User connected', '[INF]');
@@ -104,7 +82,7 @@ function configApp(theapp) {
   app.use(bodyParser.json());
   app.use(passport.initialize());
 
-  configRouter(app);
+  app.use(router);
 }
 
 function initMongoConnect() {
