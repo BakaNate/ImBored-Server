@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -r esm src/core/index.js",
+    "dev": "nodemon -r esm src/core/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --quiet .",
-    "prod": "node -r esm src/core/index.js"
+    "start": "node -r esm src/core/index.js"
   },
   "repository": {
     "type": "git",

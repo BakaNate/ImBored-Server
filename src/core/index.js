@@ -14,8 +14,8 @@ const Constants = require('../tools/Constants');
 
 const constant = new Constants();
 
-const port = (process.env.BUILD_ENVIRONMENT === 'PRODUCTION') ? constant.PORT : constant.PORT_DEV;
-const mongooseUri = (process.env.BUILD_ENVIRONMENT === 'PRODUCTION') ? constant.DB_URI : constant.DB_URI_DEV;
+const port = (process.env.NODE_ENV === 'production') ? constant.PORT : constant.PORT_DEV;
+const mongooseUri = (process.env.NODE_ENV === 'production') ? constant.DB_URI : constant.DB_URI_DEV;
 
 const User = require('../models/UserModel');
 
@@ -107,7 +107,6 @@ server.listen(port, () => {
   Xlog('Before running the app, consider \'npm audit\' && \'snyk test\' to check for any vulnerabilities', 'INF');
   Xlog('Moreover, have a look at : https://www.npmjs.com/advisories\n\n', 'INF');
   Xlog(`REST API listening at: ${server.address().address}:${server.address().port}`, 'INF');
-  Xlog(`Server is running in ${process.env.BUILD_ENVIRONMENT} mode`, '[INF]');
   Xlog(`Mongoose URI: ${mongooseUri}`, 'INF');
 
   console.timeEnd('[*] Booting');
