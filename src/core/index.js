@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const helmet = require('helmet');
-// const cors = require('cors');
+const cors = require('cors');
 const socketio = require('socket.io');
 const http = require('http');
 const router = require('./router');
@@ -73,15 +73,14 @@ i18n.configure({
 });
 app.use(i18n.init);
 
-function configApp(/* theapp */) {
-  /* theapp.use(cors((req, next) => {
+function configApp(theapp) {
+  theapp.use(cors((req, next) => {
     const options = {
       origin: '*',
       optionsSuccessStatus: 200,
     };
     next(null, options);
   }));
-  */
 
   app.use(helmet());
   app.use((req, res, next) => { // Overrides some of Helmet's properties
