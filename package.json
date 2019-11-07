@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon -r esm src/core/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint .",
+    "lint": "eslint --quiet .",
     "prod": "node -r esm src/core/index.js"
   },
   "repository": {
