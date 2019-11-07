@@ -12,7 +12,7 @@ const ddos = new Ddos({ burst: 5, limit: 10 });
 router.use(ddos.express);
 
 router.route('/')
-  .get(logger.myLogger, (req, res) => { res.status(200).send('Salam !'); });
+  .get(logger.myLogger, (req, res) => { res.status(200).send(res.__('hello')); });
 
 router.route('/register')
   .post(logger.myLogger, userController.registerUser);
