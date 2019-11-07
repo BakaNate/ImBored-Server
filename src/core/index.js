@@ -14,7 +14,7 @@ const Constants = require('../tools/Constants');
 
 const constant = new Constants();
 
-const port = (process.env.NODE_ENV === 'production') ? constant.PORT : constant.PORT_DEV;
+const port = (process.env.NODE_ENV === 'production') ? process.env.PORT : constant.PORT_DEV;
 const mongooseUri = (process.env.NODE_ENV === 'production') ? process.env.MONGOLAB_URI || process.env.MONGODB_URI || constant.DB_URI : constant.DB_URI_DEV;
 
 const User = require('../models/UserModel');
