@@ -15,20 +15,24 @@ it should return something like that:
 
 
 if not check the nodejs website: https://nodejs.org/en/
-
-Once Node is installed and the repo is cloned cd into the repository and install the dependencies:
+Once Node is installed and the repository is cloned cd into the it and install the dependencies:
 
 `cd server`  
 `npm install`
 
+Also you'll need to check if mongodb is installed by running:
+`mongod --version`
+
+If mongodb isn't installed check the mongodb website: https://www.mongodb.com/
+
 Once all the dependencies are installed you can run the server
 in dev:
 
-`npm run start`
+`npm run dev`
 
 in prod:
 
-`npm run prod`
+`npm run start`
 
 This project also have a linter that you can run using:
 
