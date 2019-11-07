@@ -6,7 +6,6 @@ class Constants {
     this.MAIL_SUBJECT = 'Votre compte ImBored';
     this.MAIL_TEXT = 'Bienvenue sur ImBored votre compte a bien été créé';
 
-    this.PORT = 3000;
     this.PORT_DEV = 3080;
 
     this.DB_URI = 'mongodb://localhost/imBored';
