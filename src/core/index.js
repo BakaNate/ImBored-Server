@@ -107,6 +107,7 @@ server.listen(port, () => {
   Xlog('Before running the app, consider \'npm audit\' && \'snyk test\' to check for any vulnerabilities', 'INF');
   Xlog('Moreover, have a look at : https://www.npmjs.com/advisories\n\n', 'INF');
   Xlog(`REST API listening at: ${server.address().address}:${server.address().port}`, 'INF');
+  Xlog(`Server is running in ${process.env.BUILD_ENVIRONMENT} mode`, '[INF]');
   Xlog(`Mongoose URI: ${mongooseUri}`, 'INF');
 
   console.timeEnd('[*] Booting');
