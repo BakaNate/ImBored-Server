@@ -1,9 +1,11 @@
+import i18n from 'i18n';
+
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const helmet = require('helmet');
-const cors = require('cors');
+// const cors = require('cors');
 const socketio = require('socket.io');
 const http = require('http');
 const router = require('./router');
@@ -55,14 +57,31 @@ io.on('connection', (socket) => {
   });
 });
 
-function configApp(theapp) {
-  theapp.use(cors((req, next) => {
+i18n.configure({
+  defaultLocale: 'en',
+  cookie: 'Accept-Language',
+  directory: `${__dirname}/../../locales`,
+
+  logWarnFn: (msg) => {
+    Xlog(`[i18n]: ${msg}`, '[WAR]');
+  },
+
+  logErrorFn: (msg) => {
+    Xlog(`[i18n]: ${msg}`, '[ERR]');
+  },
+
+});
+app.use(i18n.init);
+
+function configApp(/* theapp */) {
+  /* theapp.use(cors((req, next) => {
     const options = {
       origin: '*',
       optionsSuccessStatus: 200,
     };
     next(null, options);
   }));
+  */
 
   app.use(helmet());
   app.use((req, res, next) => { // Overrides some of Helmet's properties
