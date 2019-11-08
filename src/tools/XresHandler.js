@@ -28,13 +28,13 @@ const sendOKWithData = (obj, res) => {
 
 const sendCreated = (obj, res) => {
   Xlog(`Created: ${JSON.stringify(obj)}`, 'INF');
-  return res.status(201).send(CREATED);
+  return res.status(201).send(res.__(CREATED));
 };
 
 // 400
 const throwBadRequest = (err, res) => {
   Xlog(err, 'ERR');
-  return res.status(400).send(BAD_REQUEST);
+  return res.status(400).send(res.__(BAD_REQUEST));
 };
 
 const throwUnauthorized = (err, res) => {

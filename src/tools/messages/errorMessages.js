@@ -5,9 +5,9 @@
  ** Copyright (c) 2018-2019. All rights reserved.
  */
 
-const BAD_REQUEST = 'Bad request';
+const BAD_REQUEST = 'bad_request';
 const NOT_FOUND = 'Not found';
-const INTERNAL_SERVER_ERROR = 'Internal server error';
+const INTERNAL_SERVER_ERROR = 'internal_server_error';
 const NOT_IMPLEMENTED = 'Not implemented';
 
 module.exports = {

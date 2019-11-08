@@ -1,5 +1,9 @@
 {
   "hello": "Wassup ?!",
-  "User_not_found": "User not found",
-  "invalid_credential": "Invalid Credentials"
+  "user_not_found": "User not found",
+  "invalid_credential": "Invalid Credentials",
+  "wrong_parameters": "Wrong Parameters",
+  "created": "Created",
+  "bad_request": "Bad Request",
+  "internal_server_error": "Internal server error"
 }

@@ -1,5 +1,10 @@
 {
   "hello": "Salam !",
-  "User_not_found": "Utilisateur introuvable",
-  "invalid_credential": "Parametres Invalides"
+  "user_not_found": "Utilisateur introuvable",
+  "invalid_credential": "Identifiants Invalides",
+  "wrong_parameters": "Parametres Invalides",
+  "created": "Créé",
+  "bad_request": "Requete invalide",
+  "internal_server_error": "Erreur interne serveur"
+
 }
