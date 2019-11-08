@@ -6,7 +6,7 @@
  */
 
 const OK = 'OK';
-const CREATED = 'Created';
+const CREATED = 'created';
 
 module.exports = {
   OK,
