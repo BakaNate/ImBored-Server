@@ -70,4 +70,14 @@ UserSchema.statics.addRoom = async function (userEmail, room, cb) {
   });
 };
 
+UserSchema.statics.getUserRooms = async function (userEmail, cb) {
+  if (!userEmail) return cb(new Error(INTERNAL_SERVOR_ERROR));
+  await this.findOne({ userEmail }, async (err, user) => {
+    if (err) return cb(err);
+    if (!user) return cb(new Error('User not found'));
+    const rooms = user.userRooms;
+    return cb(null, rooms);
+  });
+  return null;
+};
 module.exports = mongoose.model('User', UserSchema);
