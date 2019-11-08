@@ -2,7 +2,7 @@ const User = require('../models/UserModel');
 const Xres = require('../tools/XresHandler');
 const utils = require('../tools/validations/userValidate');
 const { sendMail } = require('../tools/Mailer');
-const Xlog = require('../tools/Xlog');
+const { Xlog } = require('../tools/Xlog');
 
 async function registerUser(req, res) {
   Xlog('Someone is trying to register', '[INF]');
