@@ -29,7 +29,18 @@ async function logUser(req, res) {
   return null;
 }
 
+async function getRooms(req, res) {
+  Xlog('Someone is trying to get the user Rooms', '[INF]');
+  Xlog('Getting the rooms', '[INF}');
+  await User.getUserRooms(req.body.userEmail, (err, result) => {
+    if (err) return Xres.throwIntServerError(err, res);
+    Xlog('User found sendng the data', '[INF]');
+    return Xres.sendOKWithData({ rooms: result }, res);
+  });
+}
+
 module.exports = {
   logUser,
   registerUser,
+  getRooms,
 };

@@ -20,6 +20,9 @@ router.route('/register')
 router.route('/login')
   .post(logger.myLogger, userController.logUser);
 
+router.route('/rooms')
+  .get(logger.myLogger, userController.getRooms);
+
 router.route('/admin')
   .get(logger.myLogger, authController.isAuthenticated);
 
