@@ -52,7 +52,7 @@ UserSchema.statics.fetchUser = async function (userEmail, userPswd, cb) {
       const token = jwt.sign({ id: user._id }, secret, { expiresIn: 86400 });
       return cb(null, token);
     }
-    return cb(new Error('Invalid Credential'));
+    return cb(new Error('Invalid Credentials'));
   }).select('+userPswd');
 };
 
