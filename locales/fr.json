@@ -5,6 +5,7 @@
   "wrong_parameters": "Parametres Invalides",
   "created": "Créé",
   "bad_request": "Requete invalide",
-  "internal_server_error": "Erreur interne serveur"
+  "internal_server_error": "Erreur interne serveur",
+  "not_found": "Non trouvé"
 
 }

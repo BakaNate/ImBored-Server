@@ -49,7 +49,7 @@ const throwForbidden = (err, res) => {
 
 const throwNotFound = (err, res) => {
   Xlog(err, 'ERR');
-  return res.status(404).send(NOT_FOUND);
+  return res.status(404).send(res.__(NOT_FOUND));
 };
 
 const throwTeaPot = (res) => {
@@ -60,7 +60,7 @@ const throwTeaPot = (res) => {
 // 500
 const throwIntServerError = (err, res) => {
   Xlog(err, 'ERR');
-  return res.status(500).send(INTERNAL_SERVER_ERROR);
+  return res.status(500).send(res.__(INTERNAL_SERVER_ERROR));
 };
 
 const throwNotImplemented = (err, res) => {

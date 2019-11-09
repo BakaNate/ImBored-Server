@@ -6,7 +6,7 @@
  */
 
 const BAD_REQUEST = 'bad_request';
-const NOT_FOUND = 'Not found';
+const NOT_FOUND = 'not_found';
 const INTERNAL_SERVER_ERROR = 'internal_server_error';
 const NOT_IMPLEMENTED = 'Not implemented';
 
