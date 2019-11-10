@@ -37,3 +37,5 @@ in prod:
 This project also have a linter that you can run using:
 
 `npm run lint`
+
+Server is avalible online at address: https://im-bored-server.herokuapp.com/
