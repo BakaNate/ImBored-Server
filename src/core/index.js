@@ -31,6 +31,8 @@ const server = http.createServer(app);
 const io = socketio(server);
 
 io.on('connection', (socket) => {
+  const req = socket.request;
+  i18n.init(req);
   Xlog('User connected', '[INF]');
   socket.on('join', async ({ user, room }, cb) => {
     Xlog(`User: ${user} connected to room: ${room}`, '[INF]');
@@ -42,8 +44,8 @@ io.on('connection', (socket) => {
       return (cbUser);
     });
 
-    socket.emit('message', { user: 'admin', text: `Welcome ${user} to our room: ${room}` });
-    socket.broadcast.to(room).emit('message', { user: 'admin', text: `${user}, has joined!` });
+    socket.emit('message', { user: 'admin', text: `${req.__('welcome')} ${user} ${req.__('to_room')}${room}` });
+    socket.broadcast.to(room).emit('message', { user: 'admin', text: `${user}, ${req.__('has_joined')}!` });
 
     socket.join(room);
     cb();

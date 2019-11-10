@@ -6,5 +6,8 @@
   "created": "Created",
   "bad_request": "Bad Request",
   "internal_server_error": "Internal server error",
-  "not_found": "Not Found"
+  "not_found": "Not Found",
+  "to_room": "to our room: ",
+  "welcome": "Welcome",
+  "has_joined": "has joined"
 }

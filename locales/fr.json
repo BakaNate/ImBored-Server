@@ -6,6 +6,8 @@
   "created": "Créé",
   "bad_request": "Requete invalide",
   "internal_server_error": "Erreur interne serveur",
-  "not_found": "Non trouvé"
-
+  "not_found": "Non trouvé",
+  "to_room": "dans le channel: ",
+  "welcome": "Bienvenue",
+  "has_joined": "nous a rejoint"
 }
